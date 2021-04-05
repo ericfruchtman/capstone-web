@@ -152,9 +152,9 @@ useEffect(() => {
 
   return (
     <>
-    <div className="grid grid-cols-12">
-      <div className={'col-span-full border p-5'}>
-        <h1 className={'text-center text-3xl'}>Custom Quiz Builder</h1>
+    <div className={"grid grid-cols-12 place-items-center border from-green-400 bg-gray-50 bg-opacity-100"}>
+      <div className={"col-span-8 md:col-span-9 lg:col-span-10 xl:col-span-8 p-2 mt-2"}>
+        <h1 className={'text-center text-blue-900 text-3xl tracking-wider text-opacity-80 subpixel-antialiased'}>Custom Quiz Builder</h1>
       </div>
     </div>
     <div className="grid grid-cols-12">
@@ -163,7 +163,7 @@ useEffect(() => {
           <ul>
             {categories.map((category, index) => {
               return <li key={index} className={category.id === selectedCategory ? 
-                "rounded border my-2 p-4 cursor-pointer bg-blue-500 text-white font-bold" : "rounded border my-2 p-4 cursor-pointer"} 
+                "rounded border my-2 p-4 cursor-pointer bg-blue-800 text-white font-bold" : "rounded border my-2 p-4 cursor-pointer"} 
                 onClick={() => {
                   setSelectedCategory(category.id);
                   setSelectedQuestion('');
@@ -181,8 +181,8 @@ useEffect(() => {
             <div className={"grid grid-cols-12 gap-4"}>
               {selectedCategory && <input value={questionTxt} onChange={(event) => {
                 setQuestionTxt(event.currentTarget.value);
-                }} type="text" className={'col-span-full md:col-span-9 lg:col-span-10 border w-full rounded border-gray-300 p-2'}/>}
-                {selectedCategory && <Button type={'primary'} className={'col-span-full md:col-span-3 lg:col-span-2 bg-green-600 cursor-pointer rounded text-center text-white text-xl md:text-lg p-2'} onClick={createNewQuestion}>New Question</Button>}
+                }} type="text" placeholder="Type question here" className={'col-span-full md:col-span-9 lg:col-span-10 border w-full rounded border-gray-300 p-2'}/>}
+                {selectedCategory && <Button type={'primary'} className={'col-span-full md:col-span-3 lg:col-span-2 bg-green-600 cursor-pointer rounded text-center text-white text-xl md:text-lg p-2'} onClick={createNewQuestion}>Add Question</Button>}
             </div>
             <br/>            
             
@@ -213,7 +213,7 @@ useEffect(() => {
               footer={<div className={"grid grid-cols-12 gap-4"}>
                 <input value={answerTxt} onChange={(event) => {
                   setAnswerTxt(event.currentTarget.value);
-                  }} type="text" className={'border rounded p-1 col-span-full md:col-span-9 lg:col-span-10'}/>
+                  }} type="text" placeholder="Type answer here" className={'border rounded p-1 col-span-full md:col-span-9 lg:col-span-10'}/>
                 <Button type={'primary'} className={"col-start-4 col-span-6 md:col-span-3 lg:col-span-2 cursor-pointer"}
                   onClick={() => {createANewAnswer(question.id);}}>
                     Add Answer
